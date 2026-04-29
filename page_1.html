@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>COOTRAVIR C.T.A. - Propuesta de Seguridad Integral</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+    <style>
+        :root {
+            /* Colores corporativos COOTRAVIR */
+            --cootravir-blue: #0e2455;
+            --cootravir-blue-light: #4a6fa5;
+            --cootravir-blue-lighter: #6b8bc0;
+            --cootravir-blue-darker: #0f1d2f;
+            --cootravir-gold: #d4af37;
+            --cootravir-gold-light: #e8c96f;
+            --cootravir-gold-lighter: #f4e5b8;
+            --cootravir-gold-darker: #dba425;
+        }
+        
+        body {
+            width: 1280px;
+            height: 720px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+        }
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--cootravir-blue-darker) 0%, var(--cootravir-blue) 50%, var(--cootravir-blue-darker) 100%);
+        }
+        .title-text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .security-pattern {
+            background-image: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.03) 0px,
+                rgba(255, 255, 255, 0.03) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+        }
+        .accent-border {
+            border-left: 4px solid var(--cootravir-gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide bg-gradient flex flex-col items-center justify-between p-12 overflow-hidden">
+        <!-- Security pattern background -->
+        <div class="security-pattern absolute inset-0 opacity-20"></div>
+        
+        <!-- Top section with title -->
+        <div class="z-10 w-full">
+            <div class="flex items-center mb-2 accent-border pl-4">
+                <div class="w-16 h-1 mr-4" style="background-color: var(--cootravir-gold);"></div>
+                <h2 class="text-xl font-semibold tracking-wider" style="color: var(--cootravir-gold-light);">
+                    COOPERATIVA DE TRABAJADORES VIGILANTES DE RISARALDA
+                </h2>
+            </div>
+        </div>
+        
+        <!-- Middle section with main title and visual elements -->
+        <div class="z-10 flex flex-col items-center justify-center text-center max-w-4xl">
+            <!-- Logos section -->
+            <div class="mb-6 flex items-center justify-center gap-8">
+                <div class="flex items-center justify-center">
+                    <img src="images/logo-cootravir.png" alt="COOTRAVIR C.T.A." class="h-40 object-contain" onerror="this.style.display='none'"/>
+                </div>
+                <div class="w-px h-24 opacity-50" style="background-color: var(--cootravir-gold);"></div>
+                <div class="flex items-center justify-center">
+                    <img src="images/tacuara.jpg" alt="TACUARA CLUB RESIDENCIAL" class="h-36 object-contain" onerror="this.style.display='none'"/>
+                </div>
+            </div>
+            
+            <!-- Main title -->
+            <h1 class="title-text text-white text-6xl font-bold mb-6">
+                PROPUESTA DE SEGURIDAD INTEGRAL
+            </h1>
+            
+            <!-- Decorative line -->
+            <div class="w-24 h-1 mb-8" style="background-color: var(--cootravir-gold);"></div>
+            
+            <!-- Subtitle -->
+            <p class="text-gray-300 text-2xl mb-4">
+                Estructura Operativa - Apoyos Tecnológicos - Oferta Económica
+            </p>
+            <p class="text-gray-300 text-xl">
+                Presentado a: <span class="font-semibold" style="color: var(--cootravir-gold-light);">TACUARA CLUB RESIDENCIAL</span>
+            </p>
+        </div>
+        
+        <!-- Bottom section with date and company info -->
+        <div class="z-10 w-full flex justify-between items-end">
+            <div class="flex items-center">
+                <i class="fas fa-user-shield mr-2" style="color: var(--cootravir-gold);"></i>
+                <span class="text-gray-300">COOTRAVIR C.T.A.</span>
+            </div>
+            <div class="flex items-center">
+                <i class="far fa-calendar-alt mr-2" style="color: var(--cootravir-gold);"></i>
+                <span class="text-gray-300" id="current-date"></span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Set date to December 11, 2025
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const specificDate = new Date(2026, 3, 28); // Month is 0-indexed, so 3 = April
+        document.getElementById('current-date').textContent = specificDate.toLocaleDateString('es-CO', options);
+    </script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>COOTRAVIR C.T.A. - Propuesta para Tacuara Club Residencial</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #1a202c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .presentation-container {
+            position: relative;
+            background: #2d3748;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .slide-frame {
+            width: 1280px;
+            height: 720px;
+            border: none;
+            display: block;
+            background: white;
+        }
+        
+        /* Estilos para pantalla completa */
+        .presentation-container.fullscreen-mode {
+            width: 100vw !important;
+            height: 100vh !important;
+            border-radius: 0 !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            background: #000 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+        }
+        
+        .presentation-container.fullscreen-mode .slide-frame {
+            width: 1280px !important;
+            height: 720px !important;
+            transform-origin: center center;
+            position: relative;
+            margin: auto;
+            flex-shrink: 0;
+        }
+        
+        /* Calcular escala automáticamente */
+        .presentation-container.fullscreen-mode {
+            --slide-width: 1280;
+            --slide-height: 720;
+        }
+        
+        /* Ajustar controles en pantalla completa */
+        .presentation-container.fullscreen-mode .navigation-controls {
+            bottom: 15px;
+            opacity: 0.5;
+        }
+        
+        .presentation-container.fullscreen-mode:hover .navigation-controls {
+            opacity: 1;
+        }
+        
+        .presentation-container.fullscreen-mode .fullscreen-button {
+            top: 15px;
+            right: 15px;
+            opacity: 0.6;
+        }
+        
+        .presentation-container.fullscreen-mode:hover .fullscreen-button {
+            opacity: 1;
+        }
+        
+        
+        .navigation-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px 16px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+        }
+        
+        .presentation-container:hover .navigation-controls {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .nav-button {
+            background: #0e2455;
+            color: white;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-button:hover:not(:disabled) {
+            background: #4a6fa5;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(14, 36, 85, 0.4);
+        }
+        
+        .nav-button:disabled {
+            background: #4b5563;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        
+        .slide-indicator {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: center;
+            padding: 0 10px;
+        }
+        
+        .fullscreen-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            opacity: 0.6;
+        }
+        
+        .fullscreen-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.05);
+            opacity: 1;
+        }
+        
+        
+        @media (max-width: 1400px) {
+            .presentation-container {
+                transform: scale(0.8);
+                transform-origin: center;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .presentation-container {
+                transform: scale(0.6);
+                transform-origin: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <button class="fullscreen-button" id="fullscreenBtn" title="Pantalla completa">
+            <i class="fas fa-expand"></i>
+        </button>
+        
+        <iframe 
+            id="slideFrame" 
+            class="slide-frame" 
+            src="page_1.html"
+            title="Diapositiva de presentación">
+        </iframe>
+        
+        <div class="navigation-controls">
+            <button class="nav-button" id="prevBtn" title="Diapositiva anterior (Flecha Izquierda)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="slide-indicator">
+                <span id="currentSlide">1</span> / <span id="totalSlides">5</span>
+            </div>
+            <button class="nav-button" id="nextBtn" title="Diapositiva siguiente (Flecha Derecha)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        const slides = [
+            'page_1.html',
+            'page_2.html',
+            'page_3.html',
+            'page_4.html',
+            'page_5.html'
+        ];
+        
+        let currentSlideIndex = 0;
+        const slideFrame = document.getElementById('slideFrame');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentSlideSpan = document.getElementById('currentSlide');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        
+        function updateSlide(index) {
+            if (index < 0 || index >= slides.length) return;
+            
+            currentSlideIndex = index;
+            slideFrame.src = slides[index];
+            currentSlideSpan.textContent = index + 1;
+            
+            // Actualizar estado de botones
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === slides.length - 1;
+        }
+        
+        function nextSlide() {
+            if (currentSlideIndex < slides.length - 1) {
+                updateSlide(currentSlideIndex + 1);
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                updateSlide(currentSlideIndex - 1);
+            }
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                updateSlide(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                updateSlide(slides.length - 1);
+            }
+        });
+        
+        // Pantalla completa
+        const container = document.querySelector('.presentation-container');
+        
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && 
+                !document.mozFullScreenElement && !document.msFullscreenElement) {
+                // Entrar en pantalla completa
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.mozRequestFullScreen) {
+                    container.mozRequestFullScreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+            } else {
+                // Salir de pantalla completa
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+        });
+        
+        // Función para calcular y aplicar el escalado
+        function scaleSlideFrame() {
+            if (container.classList.contains('fullscreen-mode')) {
+                const slideWidth = 1280;
+                const slideHeight = 720;
+                const slideAspectRatio = slideWidth / slideHeight;
+                
+                // Usar las dimensiones del contenedor en lugar de window para mayor precisión
+                const containerWidth = container.clientWidth || window.innerWidth;
+                const containerHeight = container.clientHeight || window.innerHeight;
+                const containerAspectRatio = containerWidth / containerHeight;
+                
+                let scale;
+                if (containerAspectRatio > slideAspectRatio) {
+                    // El contenedor es más ancho que la diapositiva, escalar basado en la altura
+                    scale = containerHeight / slideHeight;
+                } else {
+                    // El contenedor es más alto que la diapositiva, escalar basado en el ancho
+                    scale = containerWidth / slideWidth;
+                }
+                
+                // Aplicar transform y asegurar que el iframe esté centrado
+                slideFrame.style.transform = `scale(${scale})`;
+                slideFrame.style.transformOrigin = 'center center';
+                slideFrame.style.display = 'block';
+            } else {
+                slideFrame.style.transform = 'scale(1)';
+                slideFrame.style.transformOrigin = 'center center';
+            }
+        }
+        
+        // Detectar cambios en pantalla completa
+        function handleFullscreenChange() {
+            const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || 
+                                document.mozFullScreenElement || document.msFullscreenElement;
+            
+            if (isFullscreen) {
+                container.classList.add('fullscreen-mode');
+                fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                // Múltiples intentos para asegurar que el escalado se aplique correctamente
+                setTimeout(scaleSlideFrame, 50);
+                setTimeout(scaleSlideFrame, 150);
+                setTimeout(scaleSlideFrame, 300);
+            } else {
+                container.classList.remove('fullscreen-mode');
+                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                slideFrame.style.transform = 'scale(1)';
+                slideFrame.style.transformOrigin = 'center center';
+            }
+        }
+        
+        // Ajustar escala cuando se redimensiona la ventana - usar requestAnimationFrame para mejor rendimiento
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            if (container.classList.contains('fullscreen-mode')) {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    requestAnimationFrame(scaleSlideFrame);
+                }, 100);
+            }
+        });
+        
+        // También ajustar cuando cambia la orientación
+        window.addEventListener('orientationchange', () => {
+            if (container.classList.contains('fullscreen-mode')) {
+                setTimeout(() => {
+                    requestAnimationFrame(scaleSlideFrame);
+                }, 200);
+            }
+        });
+        
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+        
+        // Inicializar
+        updateSlide(0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Apoyos Adicionales y Beneficios Sin Costo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+    <style>
+        :root {
+            --cootravir-blue: #0e2455;
+            --cootravir-blue-light: #4a6fa5;
+            --cootravir-blue-lighter: #6b8bc0;
+            --cootravir-blue-darker: #0f1d2f;
+            --cootravir-gold: #d4af37;
+            --cootravir-gold-light: #e8c96f;
+            --cootravir-gold-lighter: #f4e5b8;
+            --cootravir-gold-darker: #dba425;
+        }
+        
+        body {
+            width: 1280px;
+            height: 720px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+        }
+        .benefit-item {
+            transition: all 0.3s ease;
+            min-width: 0;
+        }
+        .benefit-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-item span {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            flex: 1;
+            min-width: 0;
+        }
+        .reinversion-card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(14, 36, 85, 0.15);
+            padding: 16px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .reinversion-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--cootravir-blue);
+            font-weight: 800;
+            font-size: 23px;
+            line-height: 1.05;
+            margin-bottom: 8px;
+        }
+        .reinversion-intro {
+            color: #1f3b67;
+            font-size: 17px;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+        .bars-wrap {
+            position: relative;
+            border: 2px solid #dbe3ee;
+            border-radius: 10px;
+            padding: 10px 10px 8px 10px;
+            margin-bottom: 8px;
+            background: #fbfdff;
+            flex-shrink: 0;
+        }
+        .bars-grid {
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            top: 14px;
+            bottom: 48px;
+            display: grid;
+            grid-template-rows: repeat(8, 1fr);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .bars-grid div {
+            border-top: 1px dashed rgba(120, 150, 195, 0.3);
+        }
+        .bars-axis {
+            position: absolute;
+            left: 12px;
+            top: 14px;
+            bottom: 48px;
+            width: 38px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-right: 8px;
+            color: #4a678f;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        .bars-area {
+            margin-left: 42px;
+            height: 220px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 14px;
+            padding: 0 6px 0 6px;
+            position: relative;
+            z-index: 3;
+        }
+        .bar-col {
+            flex: 1;
+            max-width: 118px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .bar-value {
+            color: var(--cootravir-blue);
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .bar {
+            border-radius: 8px 8px 2px 2px;
+            width: 100%;
+            box-shadow: 0 6px 16px rgba(14, 36, 85, 0.25);
+        }
+        .bar-1 { height: 50px; background: linear-gradient(180deg, #4f78b8, #0e2455); }
+        .bar-2 { height: 106px; background: linear-gradient(180deg, #7ea2d8, #4a6fa5); }
+        .bar-3 { height: 160px; background: linear-gradient(180deg, #e3c65b, #d4af37); }
+        .bar-year {
+            margin-top: 6px;
+            color: #0e2455;
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .bar-desc {
+            margin-top: 2px;
+            color: #2f4f7f;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .note-box {
+            margin-top: 0;
+            background: #f9edc6;
+            border: 1px solid #efcf79;
+            border-radius: 12px;
+            padding: 8px 10px;
+            color: #0e2455;
+            font-size: 13px;
+            line-height: 1.2;
+            font-weight: 600;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col" style="background: linear-gradient(to right, var(--cootravir-gold-lighter), var(--cootravir-gold-light));">
+        <!-- Header with logo and title -->
+        <div class="text-white py-4 px-8 flex justify-between items-center" style="background-color: var(--cootravir-blue);">
+            <h1 class="text-3xl font-bold">Apoyos Adicionales y Beneficios Sin Costo</h1>
+            <div class="flex items-center">
+                <span class="text-xl font-semibold mr-2">COOTRAVIR C.T.A.</span>
+                <span class="bg-white px-3 py-1 rounded-full text-sm font-bold" style="color: var(--cootravir-blue);">SEGURIDAD PRIVADA</span>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="flex flex-1 p-5 overflow-hidden">
+            <!-- Left column - Reinversión en Apoyos -->
+            <div class="w-2/5 pr-4 overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-lg p-4 h-full">
+                    <div class="reinversion-card">
+                        <h2 class="reinversion-title">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Reinversión en Apoyos a la Seguridad</span>
+                        </h2>
+                        <p class="reinversion-intro">Según la duración del contrato, le ofrecemos valores adicionales para invertir en tecnología o para uso libre del cliente.</p>
+                        <div class="bars-wrap">
+                            <div class="bars-grid">
+                                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                            </div>
+                            <div class="bars-axis">
+                                <span>$160M</span>
+                                <span>$140M</span>
+                                <span>$120M</span>
+                                <span>$100M</span>
+                                <span>$80M</span>
+                                <span>$60M</span>
+                                <span>$20M</span>
+                                <span>$0</span>
+                            </div>
+                            <div class="bars-area">
+                                <div class="bar-col">
+                                    <p class="bar-value">$60M</p>
+                                    <div class="bar bar-1"></div>
+                                    <p class="bar-year">1 año</p>
+                                    <p class="bar-desc">Contrato a 1 año</p>
+                                </div>
+                                <div class="bar-col">
+                                    <p class="bar-value">$126M</p>
+                                    <div class="bar bar-2"></div>
+                                    <p class="bar-year">2 años</p>
+                                    <p class="bar-desc">Contrato a 2 años</p>
+                                </div>
+                                <div class="bar-col">
+                                    <p class="bar-value">$190M</p>
+                                    <div class="bar bar-3"></div>
+                                    <p class="bar-year">3 años</p>
+                                    <p class="bar-desc">Contrato a 3 años</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="note-box">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Nota: El valor de apoyo se recomienda utilizar en tecnología, con opción de libre destinación.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right column - Beneficios sin costo -->
+            <div class="w-3/5 pl-4 overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-lg p-4 h-full">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-gift text-3xl mr-3 flex-shrink-0" style="color: var(--cootravir-blue);"></i>
+                        <h2 class="text-xl font-bold flex-1" style="color: var(--cootravir-blue);">Herramientas de Apoyo a la Seguridad que NO generan costo</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 overflow-y-auto" style="max-height: calc(100% - 80px);">
+                        <div class="benefit-item p-3 rounded-lg flex items-start" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <i class="fas fa-mobile-screen-button text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">APP Cootravir PH</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-motorcycle text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">3 motos eléctricas para ronderos (equipos propiedad de Cootravir C.T.A)</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-user-shield text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Coordinador de seguridad y/o ejecutivo de cuenta</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-bell text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Supervisión permanente y reacción ante novedades</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-people-group text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Red de apoyo con Policía Nacional</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start">
+                            <i class="fas fa-file-shield text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Estudios de seguridad y control de correspondencia</span>
+                            </div>
+                        </div>
+                        <div class="benefit-item bg-blue-50 p-3 rounded-lg border border-blue-200 flex items-start col-span-2">
+                            <i class="fas fa-clipboard-check text-xl mr-3 mt-1 flex-shrink-0" style="color: var(--cootravir-blue-light);"></i>
+                            <div class="flex-1">
+                                <span class="text-gray-700 text-sm block">Minutas digitales y asesorías especializadas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

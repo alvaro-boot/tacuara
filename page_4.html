@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Propuesta Económica Detallada</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://picture-search.skywork.ai/aippt/static/tailwindcss.com"></script>
+    <style>
+        :root {
+            --cootravir-blue: #0e2455;
+            --cootravir-blue-light: #4a6fa5;
+            --cootravir-blue-lighter: #6b8bc0;
+            --cootravir-blue-darker: #0f1d2f;
+            --cootravir-gold: #d4af37;
+            --cootravir-gold-light: #e8c96f;
+            --cootravir-gold-lighter: #f4e5b8;
+            --cootravir-gold-darker: #dba425;
+        }
+        
+        body {
+            width: 1280px;
+            height: 720px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .slide {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+        }
+        .service-item {
+            transition: all 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide flex flex-col" style="background: linear-gradient(to right, var(--cootravir-gold-lighter), var(--cootravir-gold-light));">
+        <!-- Header with logo and title -->
+        <div class="text-white py-3 px-8 flex justify-between items-center" style="background-color: var(--cootravir-blue);">
+            <h1 class="text-3xl font-bold">Propuesta Económica Detallada - Tacuara Club Residencial</h1>
+            <div class="flex items-center">
+                <span class="text-xl font-semibold mr-2">COOTRAVIR C.T.A.</span>
+                <span class="bg-white px-3 py-1 rounded-full text-sm font-bold" style="color: var(--cootravir-blue);">SEGURIDAD PRIVADA</span>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="flex flex-1 p-4 overflow-hidden">
+            <!-- Left column - Total value and chart -->
+            <div class="w-1/2 pr-3 flex flex-col">
+                <!-- Total value card -->
+                <div class="bg-white rounded-lg shadow-lg p-5 mb-3">
+                    <div class="flex items-center mb-1">
+                        <i class="fas fa-file-invoice-dollar text-3xl mr-3" style="color: var(--cootravir-blue);"></i>
+                        <h2 class="text-xl font-bold" style="color: var(--cootravir-blue);">Resumen de Valores Mensuales</h2>
+                    </div>
+                    <div class="mt-3 space-y-2">
+                        <div class="rounded-md px-3 py-2" style="background-color: var(--cootravir-gold-lighter);">
+                            <p class="text-xs text-gray-600">Subtotal</p>
+                            <p class="text-xl font-bold" style="color: var(--cootravir-blue);">$ 121.204.687</p>
+                        </div>
+                        <div class="rounded-md px-3 py-2 bg-gray-100">
+                            <p class="text-xs text-gray-600">Total mensual enero a junio 2026</p>
+                            <p class="text-xl font-bold" style="color: var(--cootravir-blue);">$ 113.604.850</p>
+                        </div>
+                        <div class="rounded-md px-3 py-2 bg-gray-100">
+                            <p class="text-xs text-gray-600">Total mensual julio 2026</p>
+                            <p class="text-xl font-bold" style="color: var(--cootravir-blue);">$ 114.536.410</p>
+                        </div>
+                        <div class="rounded-md px-3 py-2 bg-gray-100">
+                            <p class="text-xs text-gray-600">Total mensual agosto a diciembre 2026</p>
+                            <p class="text-xl font-bold" style="color: var(--cootravir-blue);">$ 117.808.230</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chart visualization -->
+                <div class="bg-white rounded-lg shadow-lg p-3 flex-1 flex flex-col">
+                    <h3 class="text-lg font-bold mb-1" style="color: var(--cootravir-blue);">Distribución del Subtotal</h3>
+                    <div class="flex-1 w-full overflow-hidden min-h-[310px]" id="chart-container"></div>
+                </div>
+            </div>
+            
+            <!-- Right column - Service details -->
+            <div class="w-1/2 pl-3 overflow-y-auto">
+                <div class="bg-white rounded-lg shadow-lg p-3 h-full">
+                    <div class="grid grid-cols-2 gap-2 overflow-y-auto max-h-full">
+                        <!-- Service items - Propuesta económica -->
+                        <div class="service-item p-2 rounded-lg" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <div class="flex items-center">
+                                <i class="fas fa-door-open text-xl mr-2" style="color: var(--cootravir-blue-light);"></i>
+                                <div>
+                                    <h4 class="font-bold" style="color: var(--cootravir-blue);">Puesto en Portería 24 horas 30 días sin arma</h4>
+                                    <p class="text-sm text-gray-600">Cantidad: 2</p>
+                                    <p class="text-sm font-bold" style="color: var(--cootravir-blue);">$ 34.600.367</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item p-2 rounded-lg" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <div class="flex items-center">
+                                <i class="fas fa-walking text-xl mr-2" style="color: var(--cootravir-blue-light);"></i>
+                                <div>
+                                    <h4 class="font-bold" style="color: var(--cootravir-blue);">Puesto en Ronda 24 horas 30 días sin arma</h4>
+                                    <p class="text-sm text-gray-600">Cantidad: 4</p>
+                                    <p class="text-sm font-bold" style="color: var(--cootravir-blue);">$ 69.200.733</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item p-2 rounded-lg" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <div class="flex items-center">
+                                <i class="fas fa-desktop text-xl mr-2" style="color: var(--cootravir-blue-light);"></i>
+                                <div>
+                                    <h4 class="font-bold" style="color: var(--cootravir-blue);">Puesto Coordinador Interno 24 horas 30 días sin arma</h4>
+                                    <p class="text-sm text-gray-600">Cantidad: 1</p>
+                                    <p class="text-sm font-bold" style="color: var(--cootravir-blue);">$ 17.300.183</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item p-2 rounded-lg" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <div class="flex items-center">
+                                <i class="fas fa-route text-xl mr-2" style="color: var(--cootravir-blue-light);"></i>
+                                <div>
+                                    <h4 class="font-bold" style="color: var(--cootravir-blue);">Descuento ronda coordinador diurna (no se cobra)</h4>
+                                    <p class="text-sm text-gray-600">Valor descuento</p>
+                                    <p class="text-sm font-bold" style="color: var(--cootravir-blue);">$ 7.599.837</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="service-item p-2 rounded-lg" style="background-color: var(--cootravir-gold-lighter); border: 1px solid var(--cootravir-gold-light);">
+                            <div class="flex items-center">
+                                <i class="fas fa-shield-alt text-xl mr-2" style="color: var(--cootravir-blue-light);"></i>
+                                <div>
+                                    <h4 class="font-bold" style="color: var(--cootravir-blue);">Prima seguro de vida guardas de seguridad</h4>
+                                    <p class="text-sm text-gray-600">Cantidad: 21</p>
+                                    <p class="text-sm font-bold" style="color: var(--cootravir-blue);">$ 103.404</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Diagrama de torta (pie chart) - Distribución de servicios
+        const data = [
+            { name: "Puesto en Portería 24h 30 días sin arma", value: 34600367 },
+            { name: "Puesto en Ronda 24h 30 días sin arma", value: 69200733 },
+            { name: "Puesto Coordinador Interno 24h 30 días", value: 17300183 },
+            { name: "Prima seguro de vida guardas", value: 103404 }
+        ];
+        
+        const total = 121204687; // Subtotal: $ 121.204.687
+        const container = document.getElementById('chart-container');
+        const width = container.offsetWidth;
+        const containerHeight = container.offsetHeight;
+        
+        // Calcular height del SVG para incluir gráfico y leyenda completa
+        const legendItems = data.length;
+        const estimatedLegendHeight = Math.ceil(legendItems / 2) * 28 + 70; // Altura estimada de la leyenda
+        const estimatedChartHeight = Math.min(width, containerHeight);
+        const estimatedHeight = estimatedChartHeight + estimatedLegendHeight;
+        
+        const svg = d3.select("#chart-container")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", Math.max(containerHeight, estimatedHeight));
+        
+        // Radio del círculo (centrado, dejando espacio abajo para la leyenda)
+        const radius = Math.min(width, containerHeight) / 2 - 110;
+        const centerX = width / 2; // Centrado
+        const centerY = containerHeight / 2 - 65; // Mover más arriba para dejar espacio a la leyenda
+        
+        // Colores corporativos para las secciones
+        const color = d3.scaleOrdinal()
+            .domain(data.map(d => d.name))
+            .range([
+                "#0e2455", "#0f1d2f", "#4a6fa5", "#6b8bc0",
+                "#d4af37", "#dba425", "#e8c96f", "#f4e5b8",
+                "#0e2455", "#4a6fa5", "#6b8bc0", "#d4af37",
+                "#e8c96f", "#f4e5b8"
+            ]);
+        
+        // Generador de arco para el pie chart
+        const pie = d3.pie()
+            .value(d => d.value)
+            .sort(null)
+            .padAngle(0.005); // Espacio pequeño entre segmentos para que todos sean visibles
+        
+        const arc = d3.arc()
+            .innerRadius(0)
+            .outerRadius(radius);
+        
+        // Arco para etiquetas (más grande)
+        const arcLabel = d3.arc()
+            .innerRadius(radius + 20)
+            .outerRadius(radius + 20);
+        
+        // Grupo principal centrado
+        const g = svg.append("g")
+            .attr("transform", `translate(${centerX}, ${centerY})`);
+        
+        // Crear los arcos
+        const arcs = g.selectAll(".arc")
+            .data(pie(data))
+            .enter()
+            .append("g")
+            .attr("class", "arc");
+        
+        // Dibujar los arcos con animación
+        arcs.append("path")
+            .attr("fill", d => color(d.data.name))
+            .attr("stroke", "#fff")
+            .attr("stroke-width", 1.5)
+            .attr("d", arc)
+            .style("opacity", 0)
+            .transition()
+            .duration(1000)
+            .style("opacity", 1)
+            .attrTween("d", function(d) {
+                const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+                return function(t) {
+                    return arc(interpolate(t));
+                };
+            });
+        
+        // Etiquetas de porcentaje (solo para segmentos grandes)
+        arcs.append("text")
+            .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
+            .attr("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("font-weight", "600")
+            .style("fill", "#0e2455")
+            .text(d => {
+                const percentage = ((d.data.value / total) * 100).toFixed(1);
+                return percentage > 4 ? `${percentage}%` : ""; // Solo mostrar si es > 4%
+            })
+            .style("opacity", 0)
+            .transition()
+            .duration(1000)
+            .delay(500)
+            .style("opacity", 1);
+        
+        // Leyenda debajo del gráfico en dos columnas - Mostrar TODOS los items
+        // Ordenar datos por valor descendente para la leyenda
+        const sortedData = [...data].sort((a, b) => b.value - a.value);
+        
+        const legendStartY = centerY + radius + 36;
+        const legendColumnWidth = width / 2;
+        const itemsPerColumn = Math.ceil(sortedData.length / 2);
+        
+        // Columna izquierda
+        const legendLeft = svg.append("g")
+            .attr("transform", `translate(20, ${legendStartY})`);
+        
+        const legendItemsLeft = legendLeft.selectAll(".legend-item")
+            .data(sortedData.slice(0, itemsPerColumn))
+            .enter()
+            .append("g")
+            .attr("class", "legend-item")
+            .attr("transform", (d, i) => `translate(0, ${i * 24})`);
+        
+        legendItemsLeft.append("rect")
+            .attr("width", 14)
+            .attr("height", 14)
+            .attr("fill", d => color(d.name))
+            .attr("rx", 2)
+            .attr("stroke", "#fff")
+            .attr("stroke-width", 0.5);
+        
+        legendItemsLeft.append("text")
+            .attr("x", 20)
+            .attr("y", 11)
+            .style("font-size", "12px")
+            .style("fill", "#374151")
+            .style("font-weight", "500")
+            .text(d => {
+                const percentage = ((d.value / total) * 100).toFixed(1);
+                const shortName = d.name.length > 28 ? d.name.substring(0, 25) + "..." : d.name;
+                return `${shortName} (${percentage}%)`;
+            });
+        
+        // Columna derecha
+        const legendRight = svg.append("g")
+            .attr("transform", `translate(${legendColumnWidth + 20}, ${legendStartY})`);
+        
+        const legendItemsRight = legendRight.selectAll(".legend-item")
+            .data(sortedData.slice(itemsPerColumn))
+            .enter()
+            .append("g")
+            .attr("class", "legend-item")
+            .attr("transform", (d, i) => `translate(0, ${i * 24})`);
+        
+        legendItemsRight.append("rect")
+            .attr("width", 14)
+            .attr("height", 14)
+            .attr("fill", d => color(d.name))
+            .attr("rx", 2)
+            .attr("stroke", "#fff")
+            .attr("stroke-width", 0.5);
+        
+        legendItemsRight.append("text")
+            .attr("x", 20)
+            .attr("y", 11)
+            .style("font-size", "12px")
+            .style("fill", "#374151")
+            .style("font-weight", "500")
+            .text(d => {
+                const percentage = ((d.value / total) * 100).toFixed(1);
+                const shortName = d.name.length > 28 ? d.name.substring(0, 25) + "..." : d.name;
+                return `${shortName} (${percentage}%)`;
+            });
+        
+        // Ajustar height del SVG para incluir toda la leyenda
+        const finalLegendHeight = itemsPerColumn * 24;
+        const requiredHeight = legendStartY + finalLegendHeight + 20;
+        const currentHeight = parseFloat(svg.attr("height"));
+        svg.attr("height", Math.max(currentHeight, requiredHeight));
+    </script>
+</body>
+</html>
