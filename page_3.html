@@ -58,16 +58,17 @@
         
         <!-- Main content -->
         <div class="flex-1 p-8 overflow-y-auto">
-            <!-- Video de introducción -->
-            <div class="mb-8 bg-white rounded-xl shadow-lg p-3">
-                <video
-                    src="images/WhatsApp Video 2026-04-29 at 3.50.16 PM.mp4"
-                    controls
-                    playsinline
-                    preload="metadata"
-                    class="w-full h-[520px] object-cover rounded-lg">
-                    Tu navegador no soporta la reproducción de video.
-                </video>
+            <!-- Video de introducción (YouTube) -->
+            <div class="mb-8 bg-white rounded-xl shadow-lg p-3 overflow-hidden">
+                <div class="relative w-full max-w-4xl mx-auto aspect-video rounded-lg overflow-hidden bg-black">
+                    <iframe
+                        class="absolute inset-0 w-full h-full border-0"
+                        src="https://www.youtube.com/embed/JnwufjV6IHk?start=5"
+                        title="Video de introducción en YouTube"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
             </div>
 
             <!-- Introduction text -->
